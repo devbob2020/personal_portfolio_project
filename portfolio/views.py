@@ -9,3 +9,6 @@ def index(request):
 
 def blog(request):
     return render(request, 'portfolio/blog.html')
+
+def contact(request):
+    return render(request, 'portfolio/contact.html')

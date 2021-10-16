@@ -57,6 +57,10 @@
       grid-row: 1;
     }
 
+    .nav1 a {
+      color: #FFFFFF;
+    }
+
     .nav2 {
       grid-column: 2;
       grid-row: 1;
@@ -77,11 +81,11 @@
     }
 
     .inner {
-      color: #666;
+      /* color: #666;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      grid-auto-rows: minmax(100px, auto);
+      grid-auto-rows: minmax(100px, auto); */
     }
 
     .one {
@@ -129,49 +133,91 @@
       color: #ccc;
       text-decoration: none;
     }
-
   </style>
+  {% load static %}
+  <script type="text/javascript" src="{% static 'portfolio/react.development.js' %}"></script>
+  <script type="text/javascript" src="{% static 'portfolio/react-dom.development.js' %}"></script>
+  <script type="text/javascript" src="{% static 'portfolio/babel.min.js' %}"></script>
   <title>Portfolio</title>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1><a href="/index.html">Dev Bob's Personal Web Portfolio</a></h1>
-    </header>
-    <div class="nav">
-      <div class="navbar">
-          <div class="nav1"><a href="/">Home</a></div>
-          <div class="nav2"><a href="/blog">Blog</a></div>
-          <div class="nav3"><a href="/#links">Links</a></div>
-          <div class="nav4"><a href="/#about">About</a></div>
-          <div class="nav5"><a href="/#contact">Contact</a></div>
+      <header>
+        <h1><a href="/index.html">Dev Bob's Personal Web Portfolio</a></h1>
+      </header>
+      <div class="nav">
+        <div class="navbar">
+            <div class="nav1"><a href="/">Home</a></div>
+            <div class="nav2"><a href="/blog">Blog</a></div>
+            <div class="nav3"><a href="/#links">Links</a></div>
+            <div class="nav4"><a href="/#about">About</a></div>
+            <div class="nav5"><a href="/contact">Contact</a></div>
+        </div>
       </div>
-    </div>
-    <div class="inner">
-      <div class="zero">
-        {{ projects }}
-      </div>
-      <div class="one">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quibusdam odit corporis, assumenda delectus ipsa. Consequatur dolor aspernatur inventore veritatis quasi ratione deleniti consequuntur aut, sit voluptate, ipsa eos est. Quasi delectus, repellendus deleniti nihil veritatis officia itaque corporis quos facilis atque velit beatae numquam, totam, obcaecati molestias autem aut?
-      </div>
-      <div class="two">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iure sed, consequatur perferendis earum ea ab accusantium provident harum esse ullam, deserunt, libero tempore similique impedit soluta expedita aliquam exercitationem, quaerat. Ea porro odio laudantium earum quae odit voluptas repudiandae blanditiis, aspernatur iste illo officia ducimus quam fugit quod iusto repellendus illum, consequatur neque rerum nostrum hic veniam natus. Assumenda eveniet itaque animi, iusto quisquam omnis non eaque. Voluptate expedita voluptatem ut in, eius dolores iste, magni accusantium amet explicabo perspiciatis at minus similique distinctio qui totam animi natus ipsam quidem repellat possimus quas. Tempore tenetur, enim in maiores a.
-      </div>
-      <div class="three">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis placeat id sit fugit laboriosam ut consequatur, eligendi repellat vero enim perspiciatis modi voluptas atque architecto. Accusantium cum nam veniam ab voluptatum sequi similique ullam laborum eligendi labore cupiditate dicta quidem provident et ea praesentium distinctio, modi accusamus consectetur commodi doloremque ipsam voluptas. Asperiores ducimus, fuga iure omnis, commodi voluptates laboriosam minima. Quisquam tempore quasi tempora repudiandae, ut doloribus, soluta libero, doloremque dolorem et fugit totam labore aspernatur itaque vero blanditiis.
-      </div>
-      <div class="four">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corrupti, accusamus praesentium eaque harum quae, placeat modi incidunt nam ab!
-      </div>
-    </div>
-    <footer>
-      <span class="foot">Copyright &copy; MMXX - MMXXI by Dev Bob, Inc.</span>
-    </footer>
-  </div>
+      <div class="inner">
+        <div id="card01"></div>
+        <script type="text/babel">
+          class Square extends React.Component {
+            render(){
+              var squareStyle = {
+                height: 300,
+                backgroundColor: "#FF2255"
+              };
+              return(
+                <div style={squareStyle}>
 
+                </div>
+              );
+            }
+          }
+          class Label extends React.Component {
+            render() {
+              var labelStyle = {
+                color: "#333",
+                fontFamily: "sans-serif",
+                fontWeight: "bold",
+                padding: 13,
+                margin: 0,
+                alignItems: 'center'
+              };
+              return (
+                <p style={labelStyle}>#FF3366</p>
+              );
+            }
+          }
+          class Card extends React.Component {
+            render() {
+              var cardStyle = {
+                height: 400,
+                width: 300,
+                padding: 0,
+                backgroundColor: "#FFF",
+                boxShadow: "10px 10px 20px #111"
+              };
+              return (
+                <div style={cardStyle}>
+                  <Square />
+                  <Label />
+                </div>
+              );
+            }
+          }
+          ReactDOM.render(
+            <div>
+              <Card/>
+            </div>,
+            document.querySelector("#card01")
+          );
+        </script>
+      </div>
+      <footer>
+        <span class="foot">Copyright &copy; MMXX - MMXXI by Dev Bob, Inc. &nbsp;| &nbsp;All Rights Reserved.</span>
+      </footer>
+    </div>
 </body>
+<!-- {% load static %} -->
+<!-- <script src="{% static 'portfolio/js/script.js' %}" type="text/javascript"></script> -->
 </html>
-
 
 
 
